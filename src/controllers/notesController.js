@@ -29,6 +29,7 @@ export const deleteNote = async (req, res, next) => {
 
   if (!note) {
     next(createHttpError(404, 'Note not found'));
+    return;
   }
 
   res.status(200).json(note);
