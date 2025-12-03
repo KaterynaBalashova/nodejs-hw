@@ -19,7 +19,7 @@ const userSchema = new Schema(
     avatar: {
       type: String,
       required: false,
-      default: '<https://ac.goit.global/fullstack/react/default-avatar.jpg>',
+      default: 'https://ac.goit.global/fullstack/react/default-avatar.jpg',
     },
   },
   {
@@ -29,9 +29,9 @@ const userSchema = new Schema(
 );
 
 userSchema.methods.toJSON = function () {
-  const odj = this.toObject();
-  delete odj.password;
-  return odj;
+  const obj = this.toObject();
+  delete obj.password;
+  return obj;
 };
 
 userSchema.pre('save', function (next) {
